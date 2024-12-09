@@ -1,0 +1,107 @@
+2024-12-08 15:11:01 INFO     Saving logs in: ./logs/CarCFD/12_08/Grapher_15_11_01
+2024-12-08 15:11:01 INFO     Loading CarCFD dataset
+2024-12-08 15:16:38 INFO     Loading data costs  336.69s
+2024-12-08 15:16:38 INFO     Building models
+2024-12-08 15:16:39 INFO     Model: Grapher(
+  (in_mlp): MLP(
+    (processor): Sequential(
+      (0): Linear(in_features=7, out_features=256, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=256, out_features=128, bias=True)
+    )
+  )
+  (blocks): ModuleList(
+    (0-2): 3 x MultiscaleGraphBlock(
+      (phy_aggr): PhysicsGraphBlock(
+        (softmax): Softmax(dim=-1)
+        (dropout): Dropout(p=0.0, inplace=False)
+        (l_in): Linear(in_features=128, out_features=512, bias=True)
+        (l_token): Linear(in_features=128, out_features=512, bias=True)
+        (l_phy): Linear(in_features=128, out_features=32, bias=True)
+        (q): Linear(in_features=128, out_features=128, bias=False)
+        (k): Linear(in_features=128, out_features=128, bias=False)
+        (v): Linear(in_features=128, out_features=128, bias=False)
+        (l_out): Linear(in_features=512, out_features=128, bias=True)
+        (ln_1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (ffn): MLP(
+          (processor): Sequential(
+            (0): Linear(in_features=128, out_features=128, bias=True)
+            (1): ReLU()
+            (2): Linear(in_features=128, out_features=128, bias=True)
+            (3): ReLU()
+            (4): Linear(in_features=128, out_features=128, bias=True)
+          )
+        )
+        (ln_2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      )
+      (global_aggr): AttentionGraphBlock(
+        (graph_conv): GATv2Conv(128, 128, heads=4)
+        (ln_1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (ffn): MLP(
+          (processor): Sequential(
+            (0): Linear(in_features=128, out_features=128, bias=True)
+            (1): ReLU()
+            (2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (3): Linear(in_features=128, out_features=128, bias=True)
+            (4): ReLU()
+            (5): Linear(in_features=128, out_features=128, bias=True)
+          )
+        )
+        (ln_2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      )
+      (local_aggr): AttentionGraphBlock(
+        (graph_conv): GATv2Conv(128, 128, heads=4)
+        (ln_1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (ffn): MLP(
+          (processor): Sequential(
+            (0): Linear(in_features=128, out_features=128, bias=True)
+            (1): ReLU()
+            (2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (3): Linear(in_features=128, out_features=128, bias=True)
+            (4): ReLU()
+            (5): Linear(in_features=128, out_features=128, bias=True)
+          )
+        )
+        (ln_2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      )
+      (ln_1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      (ln_2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      (mlp): MLP(
+        (processor): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+      )
+    )
+  )
+  (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+  (out_mlp): MLP(
+    (processor): Sequential(
+      (0): Linear(in_features=128, out_features=128, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=128, out_features=4, bias=True)
+    )
+  )
+)
+2024-12-08 15:16:39 INFO     Criterion: <utils.loss.CarCFDLoss object at 0x7f2fb8105750>
+2024-12-08 15:16:39 INFO     Optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.001
+    lr: 0.001
+    maximize: False
+    weight_decay: 0.0001
+)
+2024-12-08 15:16:39 INFO     Scheduler: <torch.optim.lr_scheduler.StepLR object at 0x7f2fb8104610>
+2024-12-08 15:16:39 INFO     Building models costs  1.07s
+2024-12-08 15:16:39 INFO     Start training
+2024-12-08 15:16:39 INFO     Train dataset size: 690
+2024-12-08 15:16:39 INFO     Valid dataset size: 99
+2024-12-08 15:16:39 INFO     Test dataset size: 100

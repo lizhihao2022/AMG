@@ -1,0 +1,55 @@
+model:
+  model_name: 'GNOT'
+  branch_size: 4
+  output_size: 4
+  trunk_size: 2
+  space_dim: 2
+  n_layers: 3
+  n_hidden: 128
+  n_head: 1
+  n_inner: 4
+  mlp_layers: 3
+  attn_type: 'linear'
+  act: 'gelu'
+  ffn_dropout: 0.0
+  attn_dropout: 0.0
+  horiz_fourier_dim: 0
+
+data:
+  dataset: 'AirfoilTime'
+  data_path: 'Path_to/airfoil_time/'
+  sample_factor: 1
+  train_batchsize: 64
+  eval_batchsize: 64
+  in_t: 1
+  out_t: 1
+  duration_t: 10
+  normalize: True
+
+train:
+  random_seed: 0
+  cuda: True
+  device: 0
+  epochs: 500
+  patience: -1
+  eval_freq: 1
+  saving_best: True
+  saving_checkpoint: False
+  checkpoint_freq: 100
+
+optimize:
+  optimizer: 'Adam'
+  lr: 0.001
+  weight_decay: 0.0001
+
+schedule:
+  scheduler: 'StepLR'
+  step_size: 200
+  gamma: 0.5
+
+log:
+  verbose: True
+  log: True
+  log_dir: './logs'
+  wandb: False
+  wandb_project: ''

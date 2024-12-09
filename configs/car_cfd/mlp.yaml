@@ -1,0 +1,47 @@
+model:
+  model_name: 'MLP'
+  input_size: 4
+  hidden_size: 128
+  output_size: 4
+  num_layers: 4
+  pos_dim: 3
+  batch_norm: True
+  act: 'relu'
+
+data:
+  dataset: 'CarCFD'
+  data_path: 'Path_to/car_cfd/'
+  sample_factor: 1
+  train_batchsize: 1
+  eval_batchsize: 1
+  valid_dir: 1
+  test_dir: 0
+  normalize: True
+
+train:
+  random_seed: 0
+  cuda: True
+  device: 2
+  epochs: 500
+  patience: 50
+  eval_freq: 1
+  saving_best: True
+  saving_checkpoint: False
+  checkpoint_freq: 100
+
+optimize:
+  optimizer: 'AdamW'
+  lr: 0.001
+  weight_decay: 0.0001
+
+schedule:
+  scheduler: 'StepLR'
+  step_size: 100
+  gamma: 0.5
+
+log:
+  verbose: True
+  log: True
+  log_dir: './logs'
+  wandb: False
+  wandb_project: ''

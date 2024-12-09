@@ -1,0 +1,211 @@
+2024-12-08 15:11:14 INFO     Saving logs in: ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 15:11:14 INFO     Loading AirfoilTime dataset
+2024-12-08 16:05:44 INFO     Loading data costs  3269.96s
+2024-12-08 16:05:44 INFO     Building models
+2024-12-08 16:05:45 INFO     Model: Grapher(
+  (in_mlp): MLP(
+    (processor): Sequential(
+      (0): Linear(in_features=6, out_features=256, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=256, out_features=128, bias=True)
+    )
+  )
+  (blocks): ModuleList(
+    (0-2): 3 x MultiscaleGraphBlock(
+      (phy_aggr): PhysicsGraphBlock(
+        (softmax): Softmax(dim=-1)
+        (dropout): Dropout(p=0.0, inplace=False)
+        (l_in): Linear(in_features=128, out_features=1024, bias=True)
+        (l_token): Linear(in_features=128, out_features=1024, bias=True)
+        (l_phy): Linear(in_features=128, out_features=32, bias=True)
+        (q): Linear(in_features=128, out_features=128, bias=False)
+        (k): Linear(in_features=128, out_features=128, bias=False)
+        (v): Linear(in_features=128, out_features=128, bias=False)
+        (l_out): Linear(in_features=1024, out_features=128, bias=True)
+        (ln_1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (ffn): MLP(
+          (processor): Sequential(
+            (0): Linear(in_features=128, out_features=128, bias=True)
+            (1): ReLU()
+            (2): Linear(in_features=128, out_features=128, bias=True)
+            (3): ReLU()
+            (4): Linear(in_features=128, out_features=128, bias=True)
+          )
+        )
+        (ln_2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      )
+      (global_aggr): AttentionGraphBlock(
+        (graph_conv): GATv2Conv(128, 128, heads=8)
+        (ln_1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (ffn): MLP(
+          (processor): Sequential(
+            (0): Linear(in_features=128, out_features=128, bias=True)
+            (1): ReLU()
+            (2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (3): Linear(in_features=128, out_features=128, bias=True)
+            (4): ReLU()
+            (5): Linear(in_features=128, out_features=128, bias=True)
+          )
+        )
+        (ln_2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      )
+      (local_aggr): AttentionGraphBlock(
+        (graph_conv): GATv2Conv(128, 128, heads=8)
+        (ln_1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+        (ffn): MLP(
+          (processor): Sequential(
+            (0): Linear(in_features=128, out_features=128, bias=True)
+            (1): ReLU()
+            (2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (3): Linear(in_features=128, out_features=128, bias=True)
+            (4): ReLU()
+            (5): Linear(in_features=128, out_features=128, bias=True)
+          )
+        )
+        (ln_2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      )
+      (ln_1): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      (ln_2): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+      (mlp): MLP(
+        (processor): Sequential(
+          (0): Linear(in_features=128, out_features=128, bias=True)
+          (1): ReLU()
+          (2): Linear(in_features=128, out_features=128, bias=True)
+        )
+      )
+    )
+  )
+  (ln): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+  (out_mlp): MLP(
+    (processor): Sequential(
+      (0): Linear(in_features=128, out_features=128, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=128, out_features=4, bias=True)
+    )
+  )
+)
+2024-12-08 16:05:45 INFO     Criterion: <utils.loss.MultipleLoss object at 0x7fa6d24db640>
+2024-12-08 16:05:45 INFO     Optimizer: AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.001
+    lr: 0.001
+    maximize: False
+    weight_decay: 1e-05
+)
+2024-12-08 16:05:45 INFO     Scheduler: <torch.optim.lr_scheduler.StepLR object at 0x7fa6d24db340>
+2024-12-08 16:05:45 INFO     Building models costs  1.06s
+2024-12-08 16:05:45 INFO     Start training
+2024-12-08 16:05:45 INFO     Train dataset size: 10000
+2024-12-08 16:05:45 INFO     Valid dataset size: 1000
+2024-12-08 16:05:45 INFO     Test dataset size: 1000
+2024-12-08 16:26:50 INFO     Epoch 0 | train_loss: 0.60558736 | density: 0.17868700 | press: 0.17901240 | vel_x: 0.10317102 | vel_y: 0.14471694 | Time: 1265.13s | lr: 0.0010
+2024-12-08 16:28:21 INFO     Epoch 0 | valid_loss: 0.33861207 | density: 0.09705709 | press: 0.09696770 | vel_x: 0.04618581 | vel_y: 0.09840147 | Time: 90.86s
+2024-12-08 16:28:21 INFO     Epoch 0 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 16:52:45 INFO     Epoch 1 | train_loss: 0.30322704 | density: 0.08512640 | press: 0.08562017 | vel_x: 0.05135383 | vel_y: 0.08112664 | Time: 1463.36s | lr: 0.0010
+2024-12-08 16:54:38 INFO     Epoch 1 | valid_loss: 0.28062303 | density: 0.08716614 | press: 0.08634032 | vel_x: 0.04680955 | vel_y: 0.06030702 | Time: 113.14s
+2024-12-08 16:54:39 INFO     Epoch 1 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 17:20:13 INFO     Epoch 2 | train_loss: 0.22038215 | density: 0.06228660 | press: 0.06261873 | vel_x: 0.03990108 | vel_y: 0.05557573 | Time: 1534.32s | lr: 0.0010
+2024-12-08 17:22:06 INFO     Epoch 2 | valid_loss: 0.20944092 | density: 0.06015652 | press: 0.05874298 | vel_x: 0.03300016 | vel_y: 0.05754127 | Time: 112.57s
+2024-12-08 17:22:07 INFO     Epoch 2 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 17:47:30 INFO     Epoch 3 | train_loss: 0.18301406 | density: 0.05174805 | press: 0.05153437 | vel_x: 0.03619073 | vel_y: 0.04354092 | Time: 1523.32s | lr: 0.0010
+2024-12-08 17:49:22 INFO     Epoch 3 | valid_loss: 0.14529064 | density: 0.04459080 | press: 0.03906089 | vel_x: 0.02710569 | vel_y: 0.03453325 | Time: 112.23s
+2024-12-08 17:49:23 INFO     Epoch 3 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 18:14:43 INFO     Epoch 4 | train_loss: 0.15329806 | density: 0.04187104 | press: 0.04123375 | vel_x: 0.03152089 | vel_y: 0.03867238 | Time: 1519.61s | lr: 0.0010
+2024-12-08 18:16:35 INFO     Epoch 4 | valid_loss: 0.18005169 | density: 0.05907062 | press: 0.06052747 | vel_x: 0.02478049 | vel_y: 0.03567309 | Time: 112.20s
+2024-12-08 18:42:04 INFO     Epoch 5 | train_loss: 0.14193010 | density: 0.03929409 | press: 0.03882622 | vel_x: 0.02979904 | vel_y: 0.03401076 | Time: 1528.54s | lr: 0.0010
+2024-12-08 18:43:56 INFO     Epoch 5 | valid_loss: 0.13821310 | density: 0.04502866 | press: 0.04612783 | vel_x: 0.01803148 | vel_y: 0.02902513 | Time: 112.21s
+2024-12-08 18:43:57 INFO     Epoch 5 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 19:09:14 INFO     Epoch 6 | train_loss: 0.12690771 | density: 0.03390627 | press: 0.03331391 | vel_x: 0.02653889 | vel_y: 0.03314865 | Time: 1517.69s | lr: 0.0010
+2024-12-08 19:11:06 INFO     Epoch 6 | valid_loss: 0.10788969 | density: 0.02987631 | press: 0.02937471 | vel_x: 0.01882593 | vel_y: 0.02981273 | Time: 112.06s
+2024-12-08 19:11:07 INFO     Epoch 6 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 19:36:36 INFO     Epoch 7 | train_loss: 0.12569371 | density: 0.03408303 | press: 0.03367155 | vel_x: 0.02527904 | vel_y: 0.03266010 | Time: 1528.61s | lr: 0.0010
+2024-12-08 19:38:28 INFO     Epoch 7 | valid_loss: 0.11342224 | density: 0.03079793 | press: 0.02928064 | vel_x: 0.02237824 | vel_y: 0.03096543 | Time: 112.09s
+2024-12-08 20:03:47 INFO     Epoch 8 | train_loss: 0.11839605 | density: 0.03132003 | press: 0.03079956 | vel_x: 0.02768536 | vel_y: 0.02859110 | Time: 1518.92s | lr: 0.0010
+2024-12-08 20:05:39 INFO     Epoch 8 | valid_loss: 0.14725556 | density: 0.03871246 | press: 0.03467465 | vel_x: 0.04428396 | vel_y: 0.02958449 | Time: 112.38s
+2024-12-08 20:31:09 INFO     Epoch 9 | train_loss: 0.10817167 | density: 0.02878693 | press: 0.02827174 | vel_x: 0.02393912 | vel_y: 0.02717387 | Time: 1529.22s | lr: 0.0010
+2024-12-08 20:33:01 INFO     Epoch 9 | valid_loss: 0.07954786 | density: 0.01946231 | press: 0.01886129 | vel_x: 0.02165966 | vel_y: 0.01956459 | Time: 112.17s
+2024-12-08 20:33:02 INFO     Epoch 9 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 20:58:22 INFO     Epoch 10 | train_loss: 0.09994232 | density: 0.02524092 | press: 0.02483104 | vel_x: 0.02261251 | vel_y: 0.02725784 | Time: 1519.73s | lr: 0.0010
+2024-12-08 21:00:13 INFO     Epoch 10 | valid_loss: 0.12564252 | density: 0.02934442 | press: 0.02920227 | vel_x: 0.02100120 | vel_y: 0.04609463 | Time: 111.86s
+2024-12-08 21:25:43 INFO     Epoch 11 | train_loss: 0.10428807 | density: 0.02774716 | press: 0.02727454 | vel_x: 0.02272957 | vel_y: 0.02653680 | Time: 1530.04s | lr: 0.0010
+2024-12-08 21:27:34 INFO     Epoch 11 | valid_loss: 0.10203084 | density: 0.03216088 | press: 0.02969304 | vel_x: 0.01726488 | vel_y: 0.02291204 | Time: 110.87s
+2024-12-08 21:52:54 INFO     Epoch 12 | train_loss: 0.09574225 | density: 0.02617276 | press: 0.02578892 | vel_x: 0.02107332 | vel_y: 0.02270724 | Time: 1519.60s | lr: 0.0010
+2024-12-08 21:54:47 INFO     Epoch 12 | valid_loss: 0.09634152 | density: 0.03024891 | press: 0.02818261 | vel_x: 0.02052036 | vel_y: 0.01738965 | Time: 112.69s
+2024-12-08 22:20:04 INFO     Epoch 13 | train_loss: 0.09219789 | density: 0.02419369 | press: 0.02376852 | vel_x: 0.02055374 | vel_y: 0.02368195 | Time: 1517.69s | lr: 0.0010
+2024-12-08 22:21:55 INFO     Epoch 13 | valid_loss: 0.09410451 | density: 0.02197967 | press: 0.02124802 | vel_x: 0.02127059 | vel_y: 0.02960623 | Time: 111.15s
+2024-12-08 22:47:26 INFO     Epoch 14 | train_loss: 0.08976304 | density: 0.02331719 | press: 0.02287288 | vel_x: 0.02025762 | vel_y: 0.02331536 | Time: 1530.40s | lr: 0.0010
+2024-12-08 22:49:17 INFO     Epoch 14 | valid_loss: 0.09877833 | density: 0.02745900 | press: 0.02550505 | vel_x: 0.02263503 | vel_y: 0.02317924 | Time: 110.65s
+2024-12-08 23:14:36 INFO     Epoch 15 | train_loss: 0.08368178 | density: 0.02167065 | press: 0.02130547 | vel_x: 0.01908228 | vel_y: 0.02162338 | Time: 1519.76s | lr: 0.0010
+2024-12-08 23:16:27 INFO     Epoch 15 | valid_loss: 0.07710791 | density: 0.02020951 | press: 0.01987262 | vel_x: 0.01673837 | vel_y: 0.02028741 | Time: 110.37s
+2024-12-08 23:16:28 INFO     Epoch 15 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-08 23:41:57 INFO     Epoch 16 | train_loss: 0.08390020 | density: 0.02183116 | press: 0.02148972 | vel_x: 0.01794607 | vel_y: 0.02263325 | Time: 1528.87s | lr: 0.0010
+2024-12-08 23:43:49 INFO     Epoch 16 | valid_loss: 0.07685376 | density: 0.01550612 | press: 0.01534647 | vel_x: 0.02218890 | vel_y: 0.02381228 | Time: 112.21s
+2024-12-08 23:43:50 INFO     Epoch 16 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-09 00:09:08 INFO     Epoch 17 | train_loss: 0.08114651 | density: 0.02073856 | press: 0.02036145 | vel_x: 0.01981705 | vel_y: 0.02022946 | Time: 1518.28s | lr: 0.0010
+2024-12-09 00:11:00 INFO     Epoch 17 | valid_loss: 0.08346841 | density: 0.01903337 | press: 0.01767154 | vel_x: 0.02873908 | vel_y: 0.01802442 | Time: 112.05s
+2024-12-09 00:36:30 INFO     Epoch 18 | train_loss: 0.08329294 | density: 0.02163011 | press: 0.02123630 | vel_x: 0.01865568 | vel_y: 0.02177085 | Time: 1529.80s | lr: 0.0010
+2024-12-09 00:38:23 INFO     Epoch 18 | valid_loss: 0.11222276 | density: 0.02771808 | press: 0.02809088 | vel_x: 0.01952587 | vel_y: 0.03688792 | Time: 112.37s
+2024-12-09 01:03:45 INFO     Epoch 19 | train_loss: 0.08341879 | density: 0.02137151 | press: 0.02099912 | vel_x: 0.01837429 | vel_y: 0.02267387 | Time: 1522.51s | lr: 0.0010
+2024-12-09 01:05:38 INFO     Epoch 19 | valid_loss: 0.08503536 | density: 0.02698879 | press: 0.02609446 | vel_x: 0.01602681 | vel_y: 0.01592530 | Time: 112.62s
+2024-12-09 01:31:10 INFO     Epoch 20 | train_loss: 0.07650757 | density: 0.01975715 | press: 0.01933052 | vel_x: 0.01792629 | vel_y: 0.01949361 | Time: 1532.39s | lr: 0.0010
+2024-12-09 01:33:01 INFO     Epoch 20 | valid_loss: 0.08111697 | density: 0.02068012 | press: 0.02217526 | vel_x: 0.01790519 | vel_y: 0.02035640 | Time: 111.05s
+2024-12-09 01:58:22 INFO     Epoch 21 | train_loss: 0.07699549 | density: 0.01987440 | press: 0.01952257 | vel_x: 0.01693982 | vel_y: 0.02065871 | Time: 1520.50s | lr: 0.0010
+2024-12-09 02:00:15 INFO     Epoch 21 | valid_loss: 0.07527207 | density: 0.02457055 | press: 0.02395175 | vel_x: 0.01363969 | vel_y: 0.01311007 | Time: 112.90s
+2024-12-09 02:00:16 INFO     Epoch 21 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-09 02:25:36 INFO     Epoch 22 | train_loss: 0.07402148 | density: 0.01955276 | press: 0.01918622 | vel_x: 0.01746405 | vel_y: 0.01781844 | Time: 1520.66s | lr: 0.0010
+2024-12-09 02:27:29 INFO     Epoch 22 | valid_loss: 0.08273193 | density: 0.02302843 | press: 0.02297764 | vel_x: 0.01789131 | vel_y: 0.01883454 | Time: 112.39s
+2024-12-09 02:53:01 INFO     Epoch 23 | train_loss: 0.07725137 | density: 0.02082590 | press: 0.02046743 | vel_x: 0.01716528 | vel_y: 0.01879276 | Time: 1532.36s | lr: 0.0010
+2024-12-09 02:54:54 INFO     Epoch 23 | valid_loss: 0.06560680 | density: 0.01664333 | press: 0.01722560 | vel_x: 0.01594697 | vel_y: 0.01579091 | Time: 112.90s
+2024-12-09 02:54:55 INFO     Epoch 23 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-09 03:20:16 INFO     Epoch 24 | train_loss: 0.07341007 | density: 0.01886269 | press: 0.01843547 | vel_x: 0.01725617 | vel_y: 0.01885574 | Time: 1521.14s | lr: 0.0010
+2024-12-09 03:22:09 INFO     Epoch 24 | valid_loss: 0.06000628 | density: 0.01388033 | press: 0.01409399 | vel_x: 0.01241568 | vel_y: 0.01961629 | Time: 112.94s
+2024-12-09 03:22:10 INFO     Epoch 24 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-09 03:47:42 INFO     Epoch 25 | train_loss: 0.07098241 | density: 0.01828824 | press: 0.01789724 | vel_x: 0.01507185 | vel_y: 0.01972508 | Time: 1532.18s | lr: 0.0010
+2024-12-09 03:49:35 INFO     Epoch 25 | valid_loss: 0.06259728 | density: 0.01521529 | press: 0.01522366 | vel_x: 0.01600592 | vel_y: 0.01615241 | Time: 112.37s
+2024-12-09 04:14:56 INFO     Epoch 26 | train_loss: 0.06889224 | density: 0.01704792 | press: 0.01662606 | vel_x: 0.01659805 | vel_y: 0.01862021 | Time: 1521.06s | lr: 0.0010
+2024-12-09 04:16:48 INFO     Epoch 26 | valid_loss: 0.05850430 | density: 0.01422968 | press: 0.01490442 | vel_x: 0.01365776 | vel_y: 0.01571244 | Time: 112.75s
+2024-12-09 04:16:49 INFO     Epoch 26 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-09 04:42:22 INFO     Epoch 27 | train_loss: 0.06804648 | density: 0.01756027 | press: 0.01717904 | vel_x: 0.01537407 | vel_y: 0.01793311 | Time: 1532.26s | lr: 0.0010
+2024-12-09 04:44:14 INFO     Epoch 27 | valid_loss: 0.06135360 | density: 0.01521001 | press: 0.01497818 | vel_x: 0.01773001 | vel_y: 0.01343541 | Time: 112.36s
+2024-12-09 05:09:37 INFO     Epoch 28 | train_loss: 0.10338047 | density: 0.02968352 | press: 0.02901044 | vel_x: 0.02121398 | vel_y: 0.02347253 | Time: 1523.42s | lr: 0.0010
+2024-12-09 05:11:29 INFO     Epoch 28 | valid_loss: 0.10158221 | density: 0.03755008 | press: 0.03380714 | vel_x: 0.01542416 | vel_y: 0.01480084 | Time: 111.28s
+2024-12-09 05:37:02 INFO     Epoch 29 | train_loss: 0.07080047 | density: 0.01842154 | press: 0.01800054 | vel_x: 0.01602155 | vel_y: 0.01835683 | Time: 1533.79s | lr: 0.0010
+2024-12-09 05:38:50 INFO     Epoch 29 | valid_loss: 0.06378165 | density: 0.01522754 | press: 0.01432535 | vel_x: 0.01410573 | vel_y: 0.02012303 | Time: 107.77s
+2024-12-09 06:04:14 INFO     Epoch 30 | train_loss: 0.06672189 | density: 0.01684269 | press: 0.01640103 | vel_x: 0.01568881 | vel_y: 0.01778936 | Time: 1523.81s | lr: 0.0010
+2024-12-09 06:06:06 INFO     Epoch 30 | valid_loss: 0.06292293 | density: 0.01849835 | press: 0.01855400 | vel_x: 0.01153696 | vel_y: 0.01433363 | Time: 111.64s
+2024-12-09 06:31:27 INFO     Epoch 31 | train_loss: 0.06365615 | density: 0.01691812 | press: 0.01650146 | vel_x: 0.01414750 | vel_y: 0.01608907 | Time: 1521.58s | lr: 0.0010
+2024-12-09 06:33:20 INFO     Epoch 31 | valid_loss: 0.06633566 | density: 0.01563611 | press: 0.01486528 | vel_x: 0.02206363 | vel_y: 0.01377064 | Time: 112.51s
+2024-12-09 06:58:52 INFO     Epoch 32 | train_loss: 0.06513005 | density: 0.01664581 | press: 0.01624811 | vel_x: 0.01471531 | vel_y: 0.01752082 | Time: 1532.74s | lr: 0.0010
+2024-12-09 07:00:45 INFO     Epoch 32 | valid_loss: 0.07162571 | density: 0.01800440 | press: 0.01816371 | vel_x: 0.01771491 | vel_y: 0.01774269 | Time: 112.82s
+2024-12-09 07:26:05 INFO     Epoch 33 | train_loss: 0.06071392 | density: 0.01487717 | press: 0.01450294 | vel_x: 0.01544603 | vel_y: 0.01588778 | Time: 1519.91s | lr: 0.0010
+2024-12-09 07:27:57 INFO     Epoch 33 | valid_loss: 0.05290062 | density: 0.01252176 | press: 0.01219442 | vel_x: 0.01222279 | vel_y: 0.01596165 | Time: 112.25s
+2024-12-09 07:27:58 INFO     Epoch 33 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-09 07:53:29 INFO     Epoch 34 | train_loss: 0.05984321 | density: 0.01542651 | press: 0.01502894 | vel_x: 0.01385426 | vel_y: 0.01553349 | Time: 1531.10s | lr: 0.0010
+2024-12-09 07:55:22 INFO     Epoch 34 | valid_loss: 0.05614226 | density: 0.01627260 | press: 0.01594421 | vel_x: 0.01180263 | vel_y: 0.01212281 | Time: 112.57s
+2024-12-09 08:20:42 INFO     Epoch 35 | train_loss: 0.06312842 | density: 0.01652206 | press: 0.01615095 | vel_x: 0.01439257 | vel_y: 0.01606285 | Time: 1520.38s | lr: 0.0010
+2024-12-09 08:22:35 INFO     Epoch 35 | valid_loss: 0.05954541 | density: 0.01347076 | press: 0.01301816 | vel_x: 0.01985067 | vel_y: 0.01320581 | Time: 112.62s
+2024-12-09 08:48:07 INFO     Epoch 36 | train_loss: 0.06121259 | density: 0.01586978 | press: 0.01549588 | vel_x: 0.01415207 | vel_y: 0.01569486 | Time: 1531.51s | lr: 0.0010
+2024-12-09 08:49:58 INFO     Epoch 36 | valid_loss: 0.08493586 | density: 0.02289495 | press: 0.02564293 | vel_x: 0.01089314 | vel_y: 0.02550483 | Time: 111.76s
+2024-12-09 09:15:19 INFO     Epoch 37 | train_loss: 0.05642624 | density: 0.01480864 | press: 0.01445417 | vel_x: 0.01223378 | vel_y: 0.01492966 | Time: 1520.67s | lr: 0.0010
+2024-12-09 09:17:12 INFO     Epoch 37 | valid_loss: 0.05148624 | density: 0.01259845 | press: 0.01214262 | vel_x: 0.01103192 | vel_y: 0.01571325 | Time: 112.76s
+2024-12-09 09:17:13 INFO     Epoch 37 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-09 09:42:43 INFO     Epoch 38 | train_loss: 0.05816466 | density: 0.01446525 | press: 0.01410092 | vel_x: 0.01495557 | vel_y: 0.01464292 | Time: 1530.75s | lr: 0.0010
+2024-12-09 09:44:33 INFO     Epoch 38 | valid_loss: 0.06054860 | density: 0.01271976 | press: 0.01204422 | vel_x: 0.02472640 | vel_y: 0.01105822 | Time: 109.36s
+2024-12-09 10:09:54 INFO     Epoch 39 | train_loss: 0.05892928 | density: 0.01559564 | press: 0.01526362 | vel_x: 0.01272999 | vel_y: 0.01534003 | Time: 1521.61s | lr: 0.0010
+2024-12-09 10:11:46 INFO     Epoch 39 | valid_loss: 0.05139308 | density: 0.01622453 | press: 0.01445712 | vel_x: 0.00952819 | vel_y: 0.01118323 | Time: 111.55s
+2024-12-09 10:11:47 INFO     Epoch 39 | save best models in ./logs/AirfoilTime/12_08/Grapher_15_11_14
+2024-12-09 10:37:05 INFO     Epoch 40 | train_loss: 0.05670207 | density: 0.01427809 | press: 0.01390532 | vel_x: 0.01342549 | vel_y: 0.01509318 | Time: 1518.63s | lr: 0.0010
+2024-12-09 10:38:57 INFO     Epoch 40 | valid_loss: 0.05996312 | density: 0.01802128 | press: 0.01563443 | vel_x: 0.01161030 | vel_y: 0.01469711 | Time: 111.49s
+2024-12-09 11:04:27 INFO     Epoch 41 | train_loss: 0.05682763 | density: 0.01441399 | press: 0.01403249 | vel_x: 0.01356788 | vel_y: 0.01481326 | Time: 1529.77s | lr: 0.0010
+2024-12-09 11:06:19 INFO     Epoch 41 | valid_loss: 0.05389181 | density: 0.01325938 | press: 0.01297317 | vel_x: 0.01357420 | vel_y: 0.01408505 | Time: 112.29s
+2024-12-09 11:31:38 INFO     Epoch 42 | train_loss: 0.05373736 | density: 0.01412273 | press: 0.01375470 | vel_x: 0.01229120 | vel_y: 0.01356873 | Time: 1519.09s | lr: 0.0010
+2024-12-09 11:33:30 INFO     Epoch 42 | valid_loss: 0.05340476 | density: 0.01638776 | press: 0.01446435 | vel_x: 0.01263652 | vel_y: 0.00991613 | Time: 111.86s
+2024-12-09 11:59:00 INFO     Epoch 43 | train_loss: 0.05404863 | density: 0.01380627 | press: 0.01343707 | vel_x: 0.01259685 | vel_y: 0.01420844 | Time: 1529.58s | lr: 0.0010
+2024-12-09 12:00:51 INFO     Epoch 43 | valid_loss: 0.05196871 | density: 0.01369013 | press: 0.01400735 | vel_x: 0.01051628 | vel_y: 0.01375495 | Time: 111.69s

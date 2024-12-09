@@ -1,0 +1,4 @@
+2024-12-08 14:33:52 INFO     Saving logs in: ./logs/NavierStokes/12_08/Grapher_14_33_52
+2024-12-08 14:33:52 INFO     Loading NavierStokes dataset
+2024-12-08 14:33:59 INFO     Loading data costs  6.43s
+2024-12-08 14:33:59 INFO     Building models

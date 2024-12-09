@@ -1,0 +1,63 @@
+model:
+  model_name: 'Grapher'
+  feature_width: 128
+  num_layers: 3
+  pos_dim: 2
+  input_features: 3
+  output_features: 3
+  batch_norm: True
+  act: 'relu'
+  global_ratio: 0.25
+  global_k: 4
+  global_cos: True 
+  global_pos: False
+  local_nodes: 512
+  local_ratio: 0.25
+  local_k: 6
+  local_cos: False
+  local_pos: True
+  num_phys: 64
+  num_heads: 8
+
+data:
+  dataset: 'Climate'
+  data_path: "Path_to/climate/raw_data.pt"
+  train_batchsize: 16
+  eval_batchsize: 16
+  in_t: 1
+  out_t: 1
+  duration_t: 20
+  train_ratio: 0.8
+  valid_ratio: 0.1
+  test_ratio: 0.1
+  subset: False
+  subset_ratio: 0.1
+  normalize: True
+
+train:
+  random_seed: 0
+  cuda: True
+  device: 0
+  epochs: 500
+  patience: -1
+  eval_freq: 1
+  saving_best: True
+  saving_checkpoint: False
+  checkpoint_freq: 100
+
+optimize:
+  optimizer: 'AdamW'
+  lr: 0.001
+  weight_decay: 0.00001
+
+schedule:
+  scheduler: 'StepLR'
+  step_size: 100
+  gamma: 0.5
+
+log:
+  verbose: True
+  log: True
+  log_dir: './logs'
+  wandb: False
+  wandb_project: ''

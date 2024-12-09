@@ -1,0 +1,44 @@
+model:
+  model_name: 'UNet'
+  in_channels: 4
+  out_channels: 4
+  init_features: 128
+  pos_dim: 3
+
+data:
+  dataset: 'CarCFD'
+  data_path: 'Path_to/car_cfd/'
+  sample_factor: 1
+  train_batchsize: 1
+  eval_batchsize: 1
+  valid_dir: 1
+  test_dir: 0
+  normalize: True
+
+train:
+  random_seed: 0
+  cuda: True
+  device: 2
+  epochs: 500
+  patience: 20
+  eval_freq: 1
+  saving_best: True
+  saving_checkpoint: False
+  checkpoint_freq: 100
+
+optimize:
+  optimizer: 'Adam'
+  lr: 0.001
+  weight_decay: 0.0001
+
+schedule:
+  scheduler: 'StepLR'
+  step_size: 200
+  gamma: 0.5
+
+log:
+  verbose: True
+  log: True
+  log_dir: './logs'
+  wandb: False
+  wandb_project: ''

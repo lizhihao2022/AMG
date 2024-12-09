@@ -1,0 +1,45 @@
+model:
+  model_name: 'UNet'
+  in_channels: 1
+  out_channels: 1
+  init_features: 128
+  pos_dim: 3
+
+data:
+  dataset: 'DeformingPlate'
+  data_path: 'Path_to/deforming_plate/'
+  sample_factor: 1
+  train_batchsize: 128
+  eval_batchsize: 128
+  in_t: 1
+  out_t: 1
+  duration_t: 50
+  normalize: True
+
+train:
+  random_seed: 0
+  cuda: True
+  device: 0
+  epochs: 500
+  patience: 20
+  eval_freq: 1
+  saving_best: True
+  saving_checkpoint: False
+  checkpoint_freq: 100
+
+optimize:
+  optimizer: 'Adam'
+  lr: 0.001
+  weight_decay: 0.0001
+
+schedule:
+  scheduler: 'StepLR'
+  step_size: 200
+  gamma: 0.5
+
+log:
+  verbose: True
+  log: True
+  log_dir: './logs'
+  wandb: False
+  wandb_project: ''
