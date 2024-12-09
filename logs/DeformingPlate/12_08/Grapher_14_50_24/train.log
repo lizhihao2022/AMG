@@ -155,3 +155,22 @@ Parameter Group 0
 2024-12-09 11:24:50 INFO     Epoch 22 | valid_loss: 0.03902568 | Time: 170.10s
 2024-12-09 12:11:08 INFO     Epoch 23 | train_loss: 0.02739667 | Time: 2778.41s | lr: 0.0010
 2024-12-09 12:13:59 INFO     Epoch 23 | valid_loss: 0.02540441 | Time: 171.00s
+2024-12-09 13:00:18 INFO     Epoch 24 | train_loss: 0.02735664 | Time: 2778.91s | lr: 0.0010
+2024-12-09 13:03:09 INFO     Epoch 24 | valid_loss: 0.02710786 | Time: 171.11s
+2024-12-09 13:50:19 INFO     Epoch 25 | train_loss: 0.02711349 | Time: 2829.36s | lr: 0.0010
+2024-12-09 13:53:09 INFO     Epoch 25 | valid_loss: 0.02453613 | Time: 170.70s
+2024-12-09 13:53:10 INFO     Epoch 25 | save best models in ./logs/DeformingPlate/12_08/Grapher_14_50_24
+2024-12-09 14:39:35 INFO     Epoch 26 | train_loss: 0.02691611 | Time: 2784.71s | lr: 0.0010
+2024-12-09 14:42:23 INFO     Epoch 26 | valid_loss: 0.02503269 | Time: 167.93s
+2024-12-09 15:28:43 INFO     Epoch 27 | train_loss: 0.02723657 | Time: 2779.85s | lr: 0.0010
+2024-12-09 15:31:34 INFO     Epoch 27 | valid_loss: 0.03326998 | Time: 171.46s
+2024-12-09 16:17:53 INFO     Epoch 28 | train_loss: 0.02687836 | Time: 2778.80s | lr: 0.0010
+2024-12-09 16:20:44 INFO     Epoch 28 | valid_loss: 0.02688793 | Time: 170.55s
+2024-12-09 17:07:04 INFO     Epoch 29 | train_loss: 0.02704144 | Time: 2780.08s | lr: 0.0010
+2024-12-09 17:09:54 INFO     Epoch 29 | valid_loss: 0.03123050 | Time: 170.15s
+2024-12-09 17:56:18 INFO     Epoch 30 | train_loss: 0.02660071 | Time: 2784.09s | lr: 0.0010
+2024-12-09 17:59:07 INFO     Epoch 30 | valid_loss: 0.03165244 | Time: 168.22s
+2024-12-09 18:45:44 INFO     Epoch 31 | train_loss: 0.02664852 | Time: 2797.51s | lr: 0.0010
+2024-12-09 18:48:35 INFO     Epoch 31 | valid_loss: 0.02502283 | Time: 170.96s
+2024-12-09 19:34:59 INFO     Epoch 32 | train_loss: 0.02652129 | Time: 2783.47s | lr: 0.0010
+2024-12-09 19:37:49 INFO     Epoch 32 | valid_loss: 0.02905081 | Time: 170.63s

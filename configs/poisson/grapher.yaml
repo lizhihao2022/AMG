@@ -1,0 +1,60 @@
+model:
+  model_name: 'Grapher'
+  feature_width: 128
+  num_layers: 3
+  pos_dim: 2
+  input_features: 1
+  output_features: 1
+  batch_norm: True
+  act: 'relu'
+  global_ratio: 0.25
+  global_k: 3
+  global_cos: True
+  global_pos: False
+  local_nodes: 512
+  local_ratio: 0.25
+  local_k: 4
+  local_cos: True
+  local_pos: False
+  num_phys: 32
+  num_heads: 8
+
+data:
+  dataset: 'Poisson'
+  data_path: '/hpc2hdd/home/zli416/jhaidata/DATA/Geo/poisson/poisson_data.pkl'
+  train_batchsize: 64
+  eval_batchsize: 64
+  train_ratio: 0.8
+  valid_ratio: 0.1
+  test_ratio: 0.1
+  normalize: True
+  normalizer_type: 'PGN'
+  graph_type: 'coord'
+
+train:
+  random_seed: 0
+  cuda: True
+  device: 0
+  epochs: 500
+  patience: -1
+  eval_freq: 1
+  saving_best: True
+  saving_checkpoint: False
+  checkpoint_freq: 100
+
+optimize:
+  optimizer: 'AdamW'
+  lr: 0.001
+  weight_decay: 0.0001
+
+schedule:
+  scheduler: 'StepLR'
+  step_size: 200
+  gamma: 0.5
+
+log:
+  verbose: True
+  log: True
+  log_dir: './logs'
+  wandb: False
+  wandb_project: ''

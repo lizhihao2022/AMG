@@ -1,0 +1,63 @@
+model:
+  model_name: 'Grapher'
+  feature_width: 128
+  num_layers: 1
+  pos_dim: 2
+  input_features: 3
+  output_features: 3
+  batch_norm: True
+  act: 'relu'
+  global_ratio: 0.25
+  global_k: 6
+  global_cos: True 
+  global_pos: False
+  local_nodes: 1024
+  local_ratio: 0.25
+  local_k: 6
+  local_cos: False
+  local_pos: True
+  num_phys: 32
+  num_heads: 8
+
+data:
+  dataset: 'CylinderFlow'
+  data_path: '/hpc2hdd/home/zli416/jhaidata/DATA/Geo/cylinder_flow/data.h5'
+  sample_factor: 1
+  train_batchsize: 32
+  eval_batchsize: 32
+  in_t: 1
+  out_t: 1
+  duration_t: 100
+  train_ratio: 0.8
+  valid_ratio: 0.1
+  test_ratio: 0.1
+  normalize: True
+  graph_type: 'coord'
+
+train:
+  random_seed: 42
+  cuda: True
+  device: 1
+  epochs: 500
+  patience: -1
+  eval_freq: 1
+  saving_best: True
+  saving_checkpoint: False
+  checkpoint_freq: 100
+
+optimize:
+  optimizer: 'AdamW'
+  lr: 0.001
+  weight_decay: 0.0001
+
+schedule:
+  scheduler: 'StepLR'
+  step_size: 200
+  gamma: 0.5
+
+log:
+  verbose: True
+  log: True
+  log_dir: './logs'
+  wandb: False
+  wandb_project: ''
