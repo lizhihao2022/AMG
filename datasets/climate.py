@@ -30,7 +30,9 @@ class ClimateDataset:
     def load_data(self, data_path, 
                   train_ratio, valid_ratio, test_ratio, 
                   sample_factor, in_t, out_t, duration_t, normalize):
-        process_path = data_path.split('.')[0] + '_processed.pt'
+        dir_path = osp.dirname(data_path)
+        process_path = osp.join(dir_path, 'processed_data.pt')
+        
         if osp.exists(process_path):
             print('Loading processed data from ', process_path)
             train_data, valid_data, test_data = torch.load(process_path)
@@ -97,7 +99,6 @@ class ClimateDataset:
         else:
             return all_data
 
-        
 
 class ClimateBase(Dataset):
     def __init__(self, data, mode='train'):

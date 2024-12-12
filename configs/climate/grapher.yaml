@@ -21,7 +21,7 @@ model:
 
 data:
   dataset: 'Climate'
-  data_path: "Path_to/climate/raw_data.pt"
+  data_path: ""
   train_batchsize: 16
   eval_batchsize: 16
   in_t: 1
@@ -37,7 +37,7 @@ data:
 train:
   random_seed: 0
   cuda: True
-  device: 0
+  device: 1
   epochs: 500
   patience: -1
   eval_freq: 1

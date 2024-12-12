@@ -10,7 +10,7 @@ model:
 
 data:
   dataset: 'CylinderFlow'
-  data_path: '/hpc2hdd/home/zli416/jhaidata/DATA/Geo/cylinder_flow/data.h5'
+  data_path: ''
   sample_factor: 1
   train_batchsize: 128
   eval_batchsize: 128
