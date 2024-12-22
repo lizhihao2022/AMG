@@ -1,8 +1,10 @@
 # Harnessing Scale and Physics: A Multi-Graph Neural Operator Framework for PDEs on Arbitrary Geometries
 
-[![arXiv](https://img.shields.io/badge/arXiv-2411.15178-b31b1b.svg)](https://arxiv.org/abs/2411.15178)
 [![Conference](https://img.shields.io/badge/KDD-2025-blue)](https://kdd.org/kdd2025/)
+[![DOI](https://zenodo.org/badge/890326037.svg)](https://doi.org/10.5281/zenodo.14542736)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![arXiv](https://img.shields.io/badge/arXiv-2411.15178-b31b1b.svg)](https://arxiv.org/abs/2411.15178)
+
 
 This repository is an official PyTorch Implementation for "[Harnessing Scale and Physics: A Multi-Graph Neural Operator
 Framework for PDEs on Arbitrary Geometries](https://arxiv.org/abs/2411.15178)". [KDD 2025]
