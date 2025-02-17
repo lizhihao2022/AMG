@@ -1,14 +1,14 @@
 model:
   model_name: 'Grapher'
   feature_width: 128
-  num_layers: 1
+  num_layers: 3
   pos_dim: 2
   input_features: 3
   output_features: 3
   batch_norm: True
   act: 'relu'
   global_ratio: 0.25
-  global_k: 6
+  global_k: 4
   global_cos: True 
   global_pos: False
   local_nodes: 1024
